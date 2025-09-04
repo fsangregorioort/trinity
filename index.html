@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trinity Speaking Quiz – Grade 3</title>
+<title>Trinity Speaking Quiz – YEAR 3</title>
 <style>
 :root {
   --bg:#fdfdfd;
@@ -97,16 +97,28 @@ input[type=text]{width:100%;padding:10px;margin-top:10px;border-radius:10px;bord
 // ----------------------------
 // QUESTIONS (ejemplo mínimo, reemplazar con tus 40 preguntas)
 const questions = [
-  {type:"text",question:"What's your name?",choices:["My name is Peter","I'm fine, thank you","I'm 8 years old"],correct:[0]},
-  {type:"text",question:"How old are you?",choices:["I'm fine, thank you","I'm 8 years old","My name is Peter"],correct:[1]},
-  {type:"text",question:"How are you?",choices:["I'm fine, thank you","My name is Anna","I like pizza"],correct:[0]},
-  {type:"text",question:"Where do you live?",choices:["I live in London","I am 10 years old","I like cats"],correct:[0]},
-  {type:"text",question:"What's your favourite colour?",choices:["Blue","Yes, please","I'm fine"],correct:[0]},
-  {type:"text",question:"Do you have any pets?",choices:["Yes, I have a dog","No, I can't","I am fine"],correct:[0]},
-  {type:"text",question:"What's your favourite food?",choices:["Pizza","I live in Madrid","I'm hungry"],correct:[0]},
-  {type:"text",question:"Can you swim?",choices:["Yes, I can","No, I can't","I like swimming"],correct:[0]},
-  {type:"text",question:"What is your favourite sport?",choices:["Football","I like pizza","I am 9 years old"],correct:[0]},
-  {type:"text",question:"What do you like to do?",choices:["I like drawing","I live in Paris","I'm happy"],correct:[0]},
+  {type:"text",question:"What's your name?",choices:["My name is Peter","I'm fine, thank you","I'm 8 years old"],correct:[0]},  
+  {type:"text",question:"How are you?",choices:["My name is Anna","I like pizza","I'm fine, thank you"],correct:[2]},
+  {type:"text",question:"How old are you?",choices:["I'm fine, thank you","I'm 8 years old","It's cloudy"],correct:[1]},
+  {type:"text",question:"What's the weather like?",choices:["I'm fine","I like watching TV","It's sunny"],correct:[2]},
+  {type:"text",question:"What's the date today?",choices:["It's cloudy","September ten","It's Monday, September 15th"],correct:[2]},
+  {type:"text",question:"When's your birthday?",choices:["My birthday is on January 11th","Happy birthday!","It May 20"],correct:[0]},
+  {type:"text",question:"Where do you live?",choices:["I live in Buenos Aires","I am 10 years old","I like cats"],correct:[0]},
+  {type:"text",question:"What's your favourite colour?",choices:["My favourite colour is blue","Yes, please","I'm fine"],correct:[0]},
+  {type:"text",question:"Do you have any pets?",choices:["Yes, I do","No, I can't","I am fine"],correct:[0]},
+  {type:"text",question:"What's your favourite food?",choices:["Yes, I am","My favourite food is pizza","No, I don't"],correct:[1]},
+  {type:"text",question:"Can you swim?",choices:["Yes, I can","I am swimming","I like swimming"],correct:[0]},
+  {type:"text",question:"What is your favourite sport?",choices:["I like pizza","I am 9 years old", "My favourite sport is football"],correct:[2]},
+  {type:"text",question:"Do you like ice cream?",choices:["Yes, I do","No, I can't","I'm hungry"],correct:[0]},
+  {type:"text",question:"Can you ride a bike?",choices:["Yes, I can","I like pizza","I'm fine"],correct:[0]},
+  {type:"text",question:"What is your favourite school subject?",choices:["My favourite subject is Language","I am 9 years old","I like cats"],correct:[0]},
+  {type:"text",question:"What do you usually eat for breakfast?",choices:["I usually eat pizza","Pizza","I usually eat cookies"],correct:[2]},
+  {type:"text",question:"Do you like reading books?",choices:["Yes, I do","I have a dog","I like swimming"],correct:[0]},
+  {type:"text",question:"What's your father's job?",choices:["It's great!","It's five o'clock","He's a dentist"],correct:[2]},
+  {type:"text",question:"Do you play any musical instrument?",choices:["Yes, I do","No, thank you","I am 8"],correct:[0]},
+  {type:"text",question:"What do you usually do in the evening?",choices:["I get up in the morning","I have a shower and watch TV","I like cats"],correct:[1]},
+  {type:"text",question:"Can you speak English?",choices:["No, I don't","I live in Paris","Yes, I can"],correct:[2]},
+  {type:"text",question:"What time do you go to bed?",choices:["Yes, I do","I go to bed at 10 o'clock","I have dinner"],correct:[1]},
   
   // 10 preguntas con imagen y 5 correctas
   {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img1.png",
@@ -127,40 +139,12 @@ const questions = [
   {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img6.png",
    choices:["He is sleeping","The girl is smiling","It is cloudy","The dog is barking","They are dancing","The sun is shining","The cat is running","The children are playing","It is raining","She is reading"],
    correct:[0,1,4,5,7]},
-  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img7.png",
-   choices:["The boy is running","It is sunny","They are playing","The dog is sleeping","The girl is painting","The sun is shining","The flowers are blooming","She is singing","It is raining","He is reading"],
-   correct:[0,2,4,5,6]},
-  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img8.png",
-   choices:["She is cooking","It is cloudy","The children are swimming","The dog is running","The boy is reading","The sun is shining","They are dancing","He is painting","It is raining","The cat is sleeping"],
-   correct:[0,2,3,5,6]},
-  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img9.png",
-   choices:["They are playing","It is sunny","He is reading","The dog is barking","The girl is dancing","The sun is shining","The children are running","She is smiling","It is raining","The cat is sleeping"],
-   correct:[0,2,4,5,6]},
-  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img10.png",
-   choices:["The boy is singing","It is cloudy","They are playing football","The dog is running","The sun is shining","She is painting","The children are swimming","He is reading","It is raining","The cat is sleeping"],
-   correct:[0,2,3,4,6]},
-
-  // 20 preguntas normales más
-  {type:"text",question:"Do you like ice cream?",choices:["Yes, I do","No, I can't","I'm hungry"],correct:[0]},
-  {type:"text",question:"Can you ride a bike?",choices:["Yes, I can","I like pizza","I'm fine"],correct:[0]},
-  {type:"text",question:"What is your favourite subject?",choices:["Math","I am 9 years old","I like cats"],correct:[0]},
-  {type:"text",question:"What do you usually have for breakfast?",choices:["Cereal","I live in London","I'm fine"],correct:[0]},
-  {type:"text",question:"Do you like reading books?",choices:["Yes, I love reading","I have a dog","I like swimming"],correct:[0]},
-  {type:"text",question:"What's your favourite animal?",choices:["Dog","I'm happy","I like pizza"],correct:[0]},
-  {type:"text",question:"Do you play any musical instrument?",choices:["Yes, piano","No, thank you","I am 8"],correct:[0]},
-  {type:"text",question:"What do you like to do in the evening?",choices:["Watch TV","I am 10 years old","I like cats"],correct:[0]},
-  {type:"text",question:"Can you speak English?",choices:["Yes, a little","I live in Paris","I like drawing"],correct:[0]},
-  {type:"text",question:"Do you have brothers or sisters?",choices:["Yes, I have one","I like pizza","I am fine"],correct:[0]},
-  {type:"text",question:"What is your favourite game?",choices:["Football","I am 8 years old","I like reading"],correct:[0]},
+  
+  {type:"text",question:"Can your dad cook?",choices:["Yes, I do","Yes, he can","No, I don't"],correct:[1]},
+  {type:"text",question:"What do you do in the morning?",choices:["I get up and I brush my teeth","I go to bed","I go home"],correct:[0]},
   {type:"text",question:"Do you like swimming?",choices:["Yes, I do","I can't","I like pizza"],correct:[0]},
-  {type:"text",question:"What time do you usually wake up?",choices:["7 o'clock","I like cats","I'm happy"],correct:[0]},
-  {type:"text",question:"Do you like painting?",choices:["Yes, I love it","I am 10","I like pizza"],correct:[0]},
-  {type:"text",question:"What's your favourite fruit?",choices:["Apple","I like cats","I'm fine"],correct:[0]},
-  {type:"text",question:"Can you sing?",choices:["Yes, I can","I have a dog","I'm hungry"],correct:[0]},
-  {type:"text",question:"Do you like animals?",choices:["Yes, I do","No, I can't","I am fine"],correct:[0]},
-  {type:"text",question:"What do you do at school?",choices:["Study and play","I like pizza","I am 9 years old"],correct:[0]},
-  {type:"text",question:"Do you like music?",choices:["Yes, I love music","I am 8","I like cats"],correct:[0]},
-  {type:"text",question:"What's your favourite season?",choices:["Summer","I like pizza","I'm fine"],correct:[0]}
+  {type:"text",question:"What time do you usually get up?",choices:["7 o'clock","I like cats","I'm happy"],correct:[0]},
+
 ];
 
 // ----------------------------
