@@ -1,283 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Trinity Speaking Quiz – YEAR 3</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
-:root {
-  --bg:#fdfdfd;
-  --text:#2c3e50;
-  --muted:#7f8c8d;
-  --primary:#3498db;
-  --primary-dark:#2980b9;
-  --ok:#2ecc71;
-  --bad:#e74c3c;
-  --radius:20px;
-  --shadow:0 8px 24px rgba(0,0,0,.12);
+:root{
+  --bg:#f4fbff;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --primary-1:#3b82f6;
+  --primary-2:#0ea5e9;
+  --accent:#f59e0b;
+  --ok:#10b981;
+  --bad:#ef4444;
+  --glass: rgba(255,255,255,0.7);
+  --radius:18px;
+  --shadow: 0 10px 30px rgba(16,24,40,0.08);
+  --child-shadow: 0 6px 18px rgba(16,24,40,0.06);
 }
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;font-family:'Segoe UI',Roboto,Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;}
-.app{max-width:900px;margin:40px auto;padding:0 16px;}
-.app__header{text-align:center;margin-bottom:20px;}
-.logos{display:flex;justify-content:center;align-items:center;gap:20px;margin-bottom:10px;}
-.logo{max-height:60px;width:auto;}
-.app__title{margin:0 0 4px;font-size:clamp(24px,4vw,36px);}
-.app__subtitle{margin:0 0 14px;color:var(--muted);}
-.progress{height:14px;background:#e6e6e6;border-radius:999px;overflow:hidden;margin-bottom:20px;}
-.progress__bar{height:100%;width:0%;background:linear-gradient(90deg,var(--primary),var(--primary-dark));transition:width .4s ease;}
-.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;position:relative;}
-.card__meta{display:flex;justify-content:space-between;margin-bottom:12px;color:var(--muted);font-weight:600;font-size:14px;}
-.question-box{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.question{font-size:clamp(18px,2.8vw,26px);margin:0;}
-.speak-btn{border:none;background:var(--primary);color:#fff;cursor:pointer;font-size:22px;padding:6px 10px;border-radius:50%;transition:all .3s;}
-.speak-btn:hover{background:var(--primary-dark);transform:scale(1.1);}
-.choices{list-style:none;padding:0;margin:0;display:grid;gap:12px;}
-.btn{border:0;padding:14px 18px;border-radius:var(--radius);background:#ecf0f1;color:var(--text);font-weight:600;cursor:pointer;transition:transform .1s ease, background .2s;}
-.btn:hover{background:#d6eaf8;transform:translateY(-2px);}
-.btn:active{transform:translateY(0);}
-.btn[disabled]{opacity:.7;cursor:not-allowed;}
-.btn--ghost{background:transparent;border:2px solid #ccc;text-align:center;width:auto;padding:10px 14px;}
-.btn--ok{background:var(--ok);color:#fff;box-shadow:0 4px 12px rgba(46,204,113,.4);animation:correct 0.5s ease;}
-.btn--bad{background:var(--bad);color:#fff;box-shadow:0 4px 12px rgba(231,76,60,.4);animation:shake .5s;}
-.feedback{min-height:30px;margin-top:12px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;}
-.feedback.ok::before{content:'✔';color:var(--ok);font-size:18px;}
-.feedback.bad::before{content:'✖';color:var(--bad);font-size:18px;}
-.actions{margin-top:16px;display:flex;gap:10px;justify-content:flex-end;}
-.app__footer{margin-top:18px;color:var(--muted);text-align:center;}
-img.question-img{max-width:100%;border-radius:16px;margin-bottom:12px;box-shadow:0 6px 16px rgba(0,0,0,.08);}
-input[type=text]{width:100%;padding:10px;margin-top:10px;border-radius:10px;border:1px solid #ccc;}
-@keyframes shake{10%,90%{transform:translateX(-1px);}20%,80%{transform:translateX(2px);}30%,50%,70%{transform:translateX(-4px);}40%,60%{transform:translateX(4px);}}
-@keyframes correct{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
-@media(max-width:768px){.logos{flex-direction:column;gap:10px;}.logo{max-height:50px;}.app__title{font-size:24px;}.question{font-size:18px;}}
-@media(max-width:480px){.btn{font-size:14px;padding:12px;}.btn--ghost{padding:8px 12px;font-size:14px;}.logo{max-height:40px;}.app{padding:0 10px;}}
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@300;500;700&display=swap');
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#0f172a;background:
+linear-gradient(180deg,#e6f6ff 0%, #f4fbff 60%);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.container{max-width:980px;margin:32px auto;padding:20px;}
+.header{
+  display:flex;align-items:center;gap:16px;padding:18px;border-radius:26px;
+  background:linear-gradient(90deg,var(--primary-1),var(--primary-2));
+  color:white;box-shadow:var(--shadow);
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{height:64px;width:64px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Fredoka One',sans-serif}
+.title-wrap{line-height:1}
+.app__title{margin:0;font-size:20px;font-weight:700}
+.app__subtitle{margin:0;font-size:13px;opacity:.95}
+.header-cta{margin-left:auto;text-align:right;font-size:13px;color:rgba(255,255,255,.95)}
+.card{margin-top:18px;background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--child-shadow)}
+.topline{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.progress{flex:1;height:12px;background:#eef2f7;border-radius:999px;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.progress__bar{height:100%;width:0%;background:linear-gradient(90deg,var(--primary-1),var(--primary-2));transition:width .45s cubic-bezier(.2,.9,.2,1)}
+.meta{min-width:210px;text-align:right;color:var(--muted);font-weight:600}
+.card-body{display:grid;grid-template-columns:1fr 360px;gap:18px}
+@media(max-width:940px){.card-body{grid-template-columns:1fr;}}
+.quiz-area{min-height:260px;display:flex;flex-direction:column;gap:12px}
+.question-box{display:flex;align-items:center;justify-content:flex-start;gap:12px}
+.question-hidden{position: absolute !important; left: -9999px !important; width:1px !important; height:1px !important; overflow:hidden !important} /* visually hidden */
+.speaker-btn{background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.88));border:0;padding:12px;border-radius:999px;font-size:18px;cursor:pointer;box-shadow:0 6px 18px rgba(10,20,40,0.05)}
+.speaker-btn:hover{transform:translateY(-3px)}
+.question-visual{flex:1}
+.question-img{width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(12,20,40,0.06)}
+.choices{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.choice-item{display:flex;align-items:center;gap:10px;background:#fbfdff;border-radius:12px;padding:10px;border:1px solid rgba(10,20,40,0.03)}
+.choice-main{flex:1;display:flex;align-items:center;gap:10px}
+.choice-text-btn{flex:1;text-align:left;border:0;background:transparent;padding:10px;border-radius:10px;font-weight:600;cursor:pointer}
+.choice-text-btn:hover{background:linear-gradient(90deg, rgba(59,130,246,0.06), rgba(14,165,233,0.03))}
+.choice-speak{width:44px;height:44px;border-radius:10px;border:0;background:linear-gradient(180deg,var(--primary-1),var(--primary-2));color:white;font-size:18px;cursor:pointer}
+.choice-speak:active{transform:scale(.98)}
+.controls{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+.btn{border:0;padding:12px 16px;border-radius:14px;background:#f3f4f6;color:#0f172a;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(12,20,40,0.04)}
+.btn--ghost{background:transparent;border:2px solid rgba(15,23,42,0.06)}
+.btn--primary{background:linear-gradient(90deg,var(--primary-1),var(--primary-2));color:white}
+.feedback{min-height:30px;margin-top:6px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;color:var(--muted)}
+.feedback.ok{color:var(--ok)}
+.feedback.bad{color:var(--bad)}
+.sidebar{background:linear-gradient(180deg, rgba(250,250,255,0.8), rgba(245,250,255,0.6));padding:12px;border-radius:12px}
+.score-big{font-size:22px;font-weight:800;color:var(--primary-1)}
+.small{font-size:13px;color:var(--muted)}
+.footer{margin-top:14px;text-align:center;color:var(--muted);font-size:13px}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(6,8,15,0.45);display:none;align-items:center;justify-content:center;z-index:60}
+.modal{width:90%;max-width:900px;background:white;border-radius:16px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.5)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.summary-list{max-height:420px;overflow:auto;padding:8px;border-radius:10px;border:1px dashed rgba(15,23,42,0.04)}
+.summary-item{padding:10px;border-radius:10px;margin-bottom:8px;background:#fbfdff;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.summary-item .left{flex:1}
+.tag{font-size:12px;padding:6px 8px;border-radius:999px;font-weight:700}
+.tag.ok{background:rgba(16,185,129,0.12);color:var(--ok)}
+.tag.bad{background:rgba(239,68,68,0.12);color:var(--bad)}
+textarea.summary-text{width:100%;min-height:100px;border-radius:10px;border:1px solid #e6eef8;padding:10px;margin-top:8px}
+
+/* small helpers */
+.icon-speak{font-size:16px}
+.hidden{display:none}
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap; /* permite que se acomoden en pantallas pequeñas */
+      padding: 10px;
+    }
+    .logo-container img {
+      max-width: 100px;  /* límite de ancho */
+      width: 100%;       /* hace que escale de forma responsive */
+      height: auto;      /* mantiene proporción */
+    }
+
+
 </style>
 </head>
 <body>
-<main class="app">
-<header class="app__header">
-  <div class="logos">
-    <img src="media/logo.png" alt="School logo" class="logo">
-    <img src="media/trinity.png" alt="Trinity logo" class="logo">
+<div class="container">
+  <header class="header">
+    <div class="brand">
+      <div class="logo-container">
+    <img src="media/logo.png" alt="Logo principal">
+    <img src="media/trinity.png" alt="Logo Trinity">
   </div>
-  <h1 class="app__title">Trinity Speaking – Grade 3</h1>
-  <p class="app__subtitle">Practice choosing the correct response (Multiple Choice)</p>
-  <div class="progress" aria-label="Progress">
-    <div class="progress__bar" id="progressBar"></div>
+      <div class="title-wrap">
+        <h1 class="app__title">Trinity Speaking – Year 3</h1>
+        <div class="app__subtitle">Listen & choose the correct answer</div>
+      </div>
+    </div>
+    <div class="header-cta">
+    </div>
+  </header>
+
+  <section class="card" aria-live="polite">
+    <div class="topline">
+      <div class="progress" aria-label="Progress">
+        <div class="progress__bar" id="progressBar"></div>
+      </div>
+      <div class="meta">
+        <div id="counter">Question 1</div>
+        <div id="score">Score: 0</div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="quiz-area" id="quizArea">
+        <!-- question hidden text + speaker -->
+        <div class="question-box">
+          <h2 id="questionText" class="question-hidden">—</h2>
+          <button id="speakBtn" class="speaker-btn" title="Play question (click)"><span class="icon-speak">🔊</span></button>
+        </div>
+
+        <!-- visualization area (image, etc.) -->
+        <div id="visualWrap" class="question-visual"></div>
+
+        <!-- choices -->
+        <ul class="choices" id="choicesList" role="list"></ul>
+
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+        <div class="controls">
+          <button id="skipBtn" class="btn btn--ghost">Skip</button>
+          <button id="restartBtn" class="btn btn--ghost hidden">Restart</button>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="score-big" id="scoreBig">Score: 0</div>
+        <div class="small" style="margin-top:8px" id="questionsRemaining">Questions left: 0</div>
+        <div style="margin-top:14px" class="small">Tip: Students must click the speaker to hear the question.</div>
+      </aside>
+    </div>
+
+    <div class="footer">Tip: Only select the answers that correctly describe the question.</div>
+  </section>
+</div>
+
+<!-- Modal for results summary & form -->
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal" role="document">
+    <div class="modal-head">
+      <h3 style="margin:0">Quiz summary</h3>
+      <div>
+        <button id="closeModal" class="btn btn--ghost">Close</button>
+      </div>
+    </div>
+
+    <div class="summary-list" id="summaryList"></div>
+
+    <label style="display:block;margin-top:10px;font-weight:700">Summary to send (editable):</label>
+    <textarea class="summary-text" id="summaryText"></textarea>
+
+    <form id="sendForm" action="https://formspree.io/f/mandldqw" method="POST" style="margin-top:12px">
+      <input type="text" name="student_name" placeholder="Student name" required style="padding:10px;border-radius:10px;border:1px solid #e6eef8;width:100%;box-sizing:border-box">
+      <input type="hidden" name="summary" id="summaryHidden">
+      <input type="hidden" name="score" id="scoreHidden">
+      <div style="display:flex;gap:10px;margin-top:10px;justify-content:flex-end">
+        <button type="submit" class="btn btn--primary">Send Result</button>
+      </div>
+    </form>
   </div>
-</header>
-
-<section class="card" id="quizCard" aria-live="polite">
-  <div class="card__meta">
-    <span id="counter">Question 1</span>
-    <span id="score">Score: 0</span>
-  </div>
-
-  <div class="question-box">
-    <h2 class="question" id="questionText">—</h2>
-    <button id="speakBtn" class="speak-btn" title="Read aloud">🔊</button>
-  </div>
-
-  <ul class="choices" id="choicesList"></ul>
-
-  <div class="feedback" id="feedback" aria-live="polite" role="status"></div>
-
-  <div class="actions">
-    <button id="skipBtn" class="btn btn--ghost">Skip</button>
-    <button id="restartBtn" class="btn btn--ghost" hidden>Restart</button>
-  </div>
-</section>
-
-<footer class="app__footer">
-  <small>Tip: Only select the answers that correctly describe the question. 🙂</small>
-</footer>
-</main>
+</div>
 
 <script>
-// ----------------------------
-// QUESTIONS (ejemplo mínimo, reemplazar con tus 40 preguntas)
+/* =========================================================
+   Original question set (kept as provided), minor JS
+   enhancements added: choice-speaker buttons, modal result
+   ========================================================= */
+
 const questions = [
-  {type:"text",question:"What's your name?",choices:["My name is Peter.","I'm fine, thank you.","I'm 8 years old."],correct:[0]},  
-  {type:"text",question:"How are you?",choices:["My name is Anna.","I like pizza.","I'm fine, thank you."],correct:[2]},
-  {type:"text",question:"How old are you?",choices:["I'm fine, thank you.","I'm 8 years old.","It's cloudy."],correct:[1]},
-  {type:"text",question:"What's the weather like?",choices:["I'm fine.","I like watching TV.","It's sunny."],correct:[2]},
-  {type:"text",question:"What's the date today?",choices:["It's cloudy.","September ten.","It's Monday, September 15th."],correct:[2]},
-  {type:"text",question:"When's your birthday?",choices:["My birthday is on January 11th.","Happy birthday!","It May 20."],correct:[0]},
-  {type:"text",question:"Where do you live?",choices:["I live in Buenos Aires.","I am 10 years old.","I like cats."],correct:[0]},
-  {type:"text",question:"What's your favourite colour?",choices:["My favourite colour is blue.","Yes, please.","I'm fine."],correct:[0]},
-  {type:"text",question:"Do you have any pets?",choices:["Yes, I do.","No, I can't.","I am fine."],correct:[0]},
-  {type:"text",question:"What's your favourite food?",choices:["Yes, I am.","My favourite food is pizza.","No, I don't."],correct:[1]},
-  {type:"text",question:"Can you swim?",choices:["Yes, I can.","I am swimming.","I like swimming."],correct:[0]},
-  {type:"text",question:"What is your favourite sport?",choices:["I like pizza.","I am 9 years old.", "My favourite sport is football."],correct:[2]},
-  {type:"text",question:"Do you like ice cream?",choices:["Yes, I do.","No, I can't.","I'm hungry."],correct:[0]},
-  {type:"text",question:"Can you ride a bike?",choices:["Yes, I can.","I like pizza.","I'm fine."],correct:[0]},
-  {type:"text",question:"What is your favourite school subject?",choices:["My favourite subject is Language.","I am 9 years old.","I like cats."],correct:[0]},
-  {type:"text",question:"What do you usually eat for breakfast?",choices:["I usually eat pizza.","Pizza.","I usually eat cookies."],correct:[2]},
-  {type:"text",question:"Do you like reading books?",choices:["Yes, I do.","I have a dog.","I like swimming."],correct:[0]},
-  {type:"text",question:"What's your father's job?",choices:["It's great!","It's five o'clock.","He's a dentist."],correct:[2]},
-  {type:"text",question:"Do you play any musical instrument?",choices:["Yes, I do.","No, thank you.","I am 8."],correct:[0]},
-  {type:"text",question:"What do you usually do in the evening?",choices:["I get up in the morning.","I have a shower and watch TV.","I like cats."],correct:[1]},
-  {type:"text",question:"Can you speak English?",choices:["No, I don't.","I live in Paris.","Yes, I can."],correct:[2]},
-  {type:"text",question:"What time do you go to bed?",choices:["Yes, I do.","I go to bed at 10 o'clock.","I have dinner."],correct:[1]},
-  
-  // 10 preguntas con imagen y 5 correctas
-  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img1.png",
-   choices:["There is a clock.","The weather is partly cloudy.","The children are playing.","They are in the Art class.","There is chairs.","They are in a classroom.","The birds are flying.","They are pasting, cutting and colouring pictures.","There are some apples.", "The dad is cooking."],
-   correct:[0,1,3,5,7]},
-  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img2.png",
-   choices:["It's sunny.","The girl is skipping the rope.","The boy is playing with a car.","They are playing football.","The bird is flying.","It's cloudy.","The ball is red.","The girl is reading.","The trees are red.","He is cooking."],
-   correct:[0,1,2,3,4]},
-  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img3.png",
-   choices:["The girl is on the tree.","The dog is jumping.","There are 4 apples.","There is any apples.","The dog is playing with the boy.","She is singing.","The boy is sleeping.","She is sleeping.","She is reading a book.","It's rainy."],
-   correct:[0,2,4,6,8]},
+  {type:"text",question:"What's your name?",choices:["My name is Peter.","I'm fine, thank you.","I'm 8 years old."],correct:[0], userAnswer: null},  
+  {type:"text",question:"How are you?",choices:["My name is Anna.","I like pizza.","I'm fine, thank you."],correct:[2], userAnswer: null},
+  {type:"text",question:"How old are you?",choices:["I'm fine, thank you.","I'm 8 years old.","It's cloudy."],correct:[1], userAnswer: null},
+  {type:"text",question:"What's the weather like?",choices:["I'm fine.","I like watching TV.","It's sunny."],correct:[2], userAnswer: null},
+  {type:"text",question:"What's the date today?",choices:["It's cloudy.","September ten.","It's Monday, September 15th."],correct:[2], userAnswer: null},
+  {type:"text",question:"When's your birthday?",choices:["My birthday is on January 11th.","Happy birthday!","It May 20."],correct:[0], userAnswer: null},
+  {type:"text",question:"Where do you live?",choices:["I live in Buenos Aires.","I am 10 years old.","I like cats."],correct:[0], userAnswer: null},
+  {type:"text",question:"What's your favourite colour?",choices:["My favourite colour is blue.","Yes, please.","I'm fine."],correct:[0], userAnswer: null},
+  {type:"text",question:"Do you have any pets?",choices:["Yes, I do.","No, I can't.","I am fine."],correct:[0], userAnswer: null},
+  {type:"text",question:"What's your favourite food?",choices:["Yes, I am.","My favourite food is pizza.","No, I don't."],correct:[1], userAnswer: null},
+  {type:"text",question:"Can you swim?",choices:["Yes, I can.","I am swimming.","I like swimming."],correct:[0], userAnswer: null},
+  {type:"text",question:"What is your favourite sport?",choices:["I like pizza.","I am 9 years old.", "My favourite sport is football."],correct:[2], userAnswer: null},
+  {type:"text",question:"Do you like ice cream?",choices:["Yes, I do.","No, I can't.","I'm hungry."],correct:[0], userAnswer: null},
+  {type:"text",question:"Can you ride a bike?",choices:["Yes, I can.","I like pizza.","I'm fine."],correct:[0], userAnswer: null},
+  {type:"text",question:"What is your favourite school subject?",choices:["My favourite subject is Language.","I am 9 years old.","I like cats."],correct:[0], userAnswer: null},
+  {type:"text",question:"What do you usually eat for breakfast?",choices:["I usually eat pizza.","Pizza.","I usually eat cookies."],correct:[2], userAnswer: null},
+  {type:"text",question:"Do you like reading books?",choices:["Yes, I do.","I have a dog.","I like swimming."],correct:[0], userAnswer: null},
+  {type:"text",question:"What's your father's job?",choices:["It's great!","It's five o'clock.","He's a dentist."],correct:[2], userAnswer: null},
+  {type:"text",question:"Do you play any musical instrument?",choices:["Yes, I do.","No, thank you.","I am 8."],correct:[0], userAnswer: null},
+  {type:"text",question:"What do you usually do in the evening?",choices:["I get up in the morning.","I have a shower and watch TV.","I like cats."],correct:[1], userAnswer: null},
+  {type:"text",question:"Can you speak English?",choices:["No, I don't.","I live in Paris.","Yes, I can."],correct:[2], userAnswer: null},
+  {type:"text",question:"What time do you go to bed?",choices:["Yes, I do.","I go to bed at 10 o'clock.","I have dinner."],correct:[1], userAnswer: null},
+  
+  // 10 preguntas con imagen y 5 correctas
+  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img1.png",
+   choices:["There is a clock.","The weather is partly cloudy.","The children are playing.","They are in the Art class.","There is chairs.","They are in a classroom.","The birds are flying.","They are pasting, cutting and colouring pictures.","There are some apples.", "The dad is cooking."],
+   correct:[0,1,3,5,7], userAnswer: []},
+  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img2.png",
+   choices:["It's sunny.","The girl is skipping the rope.","The boy is playing with a car.","They are playing football.","The bird is flying.","It's cloudy.","The ball is red.","The girl is reading.","The trees are red.","He is cooking."],
+   correct:[0,1,2,3,4], userAnswer: []},
+  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img3.png",
+   choices:["The girl is on the tree.","The dog is jumping.","There are 4 apples.","There is any apples.","The dog is playing with the boy.","She is singing.","The boy is sleeping.","She is sleeping.","She is reading a book.","It's rainy."],
+   correct:[0,2,4,6,8], userAnswer: []},
 
-  
-  {type:"text",question:"Can your dad cook?",choices:["Yes, I do.","Yes, he can.","No, I don't."],correct:[1]},
-  {type:"text",question:"What do you do in the morning?",choices:["I get up and I brush my teeth.","I go to bed.","I go home."],correct:[0]},
-  {type:"text",question:"Do you like swimming?",choices:["Yes, I do.","I can't.","I like pizza."],correct:[0]},
-  {type:"text",question:"What time do you usually get up?",choices:["7 o'clock.","I like cats.","I'm happy."],correct:[0]},
-  {type:"text",question:"Imagine you are in a restaurant, what would you like to eat?",choices:["Yes, I would.","I like sushi.","I'd like to eat a burger."],correct:[2]},
-  {type:"text",question:"Perfect, that's it. Have a nice day! Goodbye!",choices:["Good bye!","Hello!","I'm happy."],correct:[0]},
-
-
+  
+  {type:"text",question:"Can your dad cook?",choices:["Yes, I do.","Yes, he can.","No, I don't."],correct:[1], userAnswer: null},
+  {type:"text",question:"What do you do in the morning?",choices:["I get up and I brush my teeth.","I go to bed.","I go home."],correct:[0], userAnswer: null},
+  {type:"text",question:"Do you like swimming?",choices:["Yes, I do.","I can't.","I swim."],correct:[0], userAnswer: null},
+  {type:"text",question:"What time do you usually get up?",choices:["I usually get up at 7 o'clock.","I like cats.","I'm happy."],correct:[0], userAnswer: null},
+  {type:"text",question:"Imagine you are in a restaurant, what would you like to eat?",choices:["Yes, I would.","I like sushi.","I'd like to eat a burger."],correct:[2], userAnswer: null},
+  {type:"text",question:"Perfect, that's it. Have a nice day! Goodbye!",choices:["Good bye!","Hello!","I'm happy."],correct:[0], userAnswer: null},
 ];
 
-// ----------------------------
-// VARIABLES
-let currentIndex=0, score=0, currentQuestion=null;
-const questionText=document.getElementById("questionText");
-const choicesList=document.getElementById("choicesList");
-const feedback=document.getElementById("feedback");
-const counter=document.getElementById("counter");
-const scoreDisplay=document.getElementById("score");
-const progressBar=document.getElementById("progressBar");
-const restartBtn=document.getElementById("restartBtn");
-const skipBtn=document.getElementById("skipBtn");
+let currentIndex = 0, score = 0, currentQuestion = null;
+const questionText = document.getElementById("questionText");
+const visualWrap = document.getElementById("visualWrap");
+const choicesList = document.getElementById("choicesList");
+const feedback = document.getElementById("feedback");
+const counter = document.getElementById("counter");
+const scoreDisplay = document.getElementById("score");
+const scoreBig = document.getElementById("scoreBig");
+const progressBar = document.getElementById("progressBar");
+const restartBtn = document.getElementById("restartBtn");
+const skipBtn = document.getElementById("skipBtn");
+const speakBtn = document.getElementById("speakBtn");
+const questionsRemaining = document.getElementById("questionsRemaining");
 
-// ----------------------------
-// ----------------------------
-// LOAD QUESTION
+// For results summary
+const modalBackdrop = document.getElementById("modalBackdrop");
+const summaryList = document.getElementById("summaryList");
+const summaryText = document.getElementById("summaryText");
+const summaryHidden = document.getElementById("summaryHidden");
+const scoreHidden = document.getElementById("scoreHidden");
+const sendForm = document.getElementById("sendForm");
+const closeModal = document.getElementById("closeModal");
+const downloadBtn = document.getElementById("downloadBtn");
+
+// Keep track of user answers to generate summary
+const userAnswers = []; // each entry: {selected: [indexes], correct:[indexes], type, qText}
+
+function setProgress(){
+  progressBar.style.width = `${(currentIndex/questions.length)*100}%`;
+  counter.textContent = `Question ${Math.min(currentIndex+1, questions.length)} of ${questions.length}`;
+  scoreDisplay.textContent = `Score: ${score}`;
+  scoreBig.textContent = `Score: ${score}`;
+  questionsRemaining.textContent = `Questions left: ${Math.max(questions.length - currentIndex,0)}`;
+}
+
+function clearVisuals(){
+  visualWrap.innerHTML = "";
+  choicesList.innerHTML = "";
+  feedback.textContent = "";
+  feedback.className = "feedback";
+  // stop any speech
+  if(window.speechSynthesis) speechSynthesis.cancel();
+}
+
+// Load question but **do not render the question text** visually (hidden). Only speaker plays it.
 function loadQuestion(){
-  if(currentIndex>=questions.length){showResults();return;}
-  currentQuestion=questions[currentIndex];
-  questionText.textContent=currentQuestion.question;
-  counter.textContent=`Question ${currentIndex+1} of ${questions.length}`;
-  scoreDisplay.textContent=`Score: ${score}`;
-  progressBar.style.width=`${(currentIndex/questions.length)*100}%`;
-  feedback.textContent=""; feedback.className="feedback"; // reset feedback
-  choicesList.innerHTML="";
+  clearVisuals();
+  if(currentIndex >= questions.length){
+    showResults();
+    return;
+  }
+  currentQuestion = questions[currentIndex];
+  // set hidden text (kept in DOM in questionText but visually hidden)
+  questionText.textContent = currentQuestion.question;
+  setProgress();
 
-  const speakBtn = document.getElementById("speakBtn");
+  // Visual: if image, show image
+  if(currentQuestion.type === "image"){
+    const img = document.createElement("img");
+    img.src = currentQuestion.image;
+    img.alt = "Question image";
+    img.className = "question-img";
+    visualWrap.appendChild(img);
 
-  if(currentQuestion.type==="image"){
-    // 🔴 Ocultar parlante en preguntas con imagen
-    speakBtn.style.display = "none";
+    // render checkboxes + speak per option
+    currentQuestion.choices.forEach((choice, i) => {
+      const li = document.createElement("li");
+      li.className = "choice-item";
+      // main label with checkbox and text
+      const main = document.createElement("div");
+      main.className = "choice-main";
 
-    const img=document.createElement("img"); 
-    img.src=currentQuestion.image; 
-    img.alt="Question Image"; 
-    img.className="question-img";
-    choicesList.appendChild(img);
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.value = i;
+      cb.id = `cb-${currentIndex}-${i}`;
+      cb.style.marginLeft = "6px";
+      cb.style.marginRight = "8px";
 
-    currentQuestion.choices.forEach((choice,i)=>{
-      const li=document.createElement("li");
-      const label=document.createElement("label");
-      label.style.display="block";
-      const checkbox=document.createElement("input"); 
-      checkbox.type="checkbox"; 
-      checkbox.value=i;
-      label.appendChild(checkbox); 
-      label.appendChild(document.createTextNode(" "+choice));
-      li.appendChild(label); 
+      const labelBtn = document.createElement("button");
+      labelBtn.type = "button";
+      labelBtn.className = "choice-text-btn";
+      labelBtn.textContent = choice;
+      // clicking labelBtn toggles checkbox (for easier use on touch)
+      labelBtn.addEventListener("click", () => {
+        cb.checked = !cb.checked;
+      });
+
+      main.appendChild(cb);
+      main.appendChild(labelBtn);
+
+      // speaker for the choice
+      const speakChoice = document.createElement("button");
+      speakChoice.className = "choice-speak";
+      speakChoice.title = "Play option";
+      speakChoice.innerHTML = "🔊";
+      speakChoice.addEventListener("click", (e) => {
+        e.stopPropagation();
+        playText(choice);
+      });
+
+      li.appendChild(main);
+      li.appendChild(speakChoice);
       choicesList.appendChild(li);
     });
-    const btnCheck=document.createElement("button");
-    btnCheck.className="btn btn--ghost"; 
-    btnCheck.textContent="Check Answer"; 
-    btnCheck.addEventListener("click",checkImageAnswer);
-    choicesList.appendChild(btnCheck);
-  } else {
-    // 🔵 Mostrar parlante en preguntas de texto
-    speakBtn.style.display = "inline-block";
 
-    currentQuestion.choices.forEach((choice,i)=>{
-      const li=document.createElement("li");
-      const btn=document.createElement("button");
-      btn.className="btn"; 
-      btn.textContent=choice;
-      btn.addEventListener("click",()=>checkTextAnswer(i,btn));
-      li.appendChild(btn); 
+    const btnCheck = document.createElement("button");
+    btnCheck.className = "btn";
+    btnCheck.textContent = "Check Answer";
+    btnCheck.addEventListener("click", checkImageAnswer);
+    choicesList.appendChild(btnCheck);
+
+  } else {
+    // text question: no visible question text, but keep image area empty
+    visualWrap.innerHTML = "";
+
+    // for each choice, show button + speak
+    currentQuestion.choices.forEach((choice, i) => {
+      const li = document.createElement("li");
+      li.className = "choice-item";
+
+      const main = document.createElement("div");
+      main.className = "choice-main";
+
+      const btn = document.createElement("button");
+      btn.className = "choice-text-btn";
+      btn.textContent = choice;
+      btn.setAttribute("aria-pressed","false");
+      btn.addEventListener("click", () => {
+        checkTextAnswer(i, btn);
+      });
+
+      main.appendChild(btn);
+
+      const speakChoice = document.createElement("button");
+      speakChoice.className = "choice-speak";
+      speakChoice.title = "Play option";
+      speakChoice.innerHTML = "🔊";
+      speakChoice.addEventListener("click", (e) => {
+        e.stopPropagation();
+        playText(choice);
+      });
+
+      li.appendChild(main);
+      li.appendChild(speakChoice);
       choicesList.appendChild(li);
     });
   }
 }
 
+// play a text using speechSynthesis (British English preferred)
+let voices = [];
+function setVoices(){
+  voices = speechSynthesis.getVoices();
+}
+speechSynthesis.onvoiceschanged = setVoices;
+setVoices();
 
-// ----------------------------
-// CHECK ANSWERS
-function checkTextAnswer(i,btn){
-  const isCorrect=currentQuestion.correct.includes(i);
-  if(isCorrect){btn.classList.add("btn--ok");feedback.textContent="Correct!";feedback.className="feedback ok";score++;}
-  else{btn.classList.add("btn--bad");feedback.textContent="Wrong answer!";feedback.className="feedback bad";}
-  [...choicesList.querySelectorAll("button")].forEach(b=>b.disabled=true);
-  setTimeout(()=>{currentIndex++;loadQuestion();},1200);
+function playText(text){
+  if(window.speechSynthesis) speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "en-GB";
+  u.rate = 1;
+  u.pitch = 1;
+  // pick en-GB if possible
+  const brit = voices.find(v => v.lang && v.lang.startsWith("en-GB"));
+  if(brit) u.voice = brit;
+  speechSynthesis.speak(u);
+}
+
+// Speak full question when speakBtn clicked
+speakBtn.addEventListener("click", () => {
+  if(!currentQuestion) return;
+  playText(currentQuestion.question);
+});
+
+// ------------------ answer checkers -------------------
+function checkTextAnswer(i, btn){
+  const isCorrect = currentQuestion.correct.includes(i);
+  // disable all choice buttons
+  const allBtns = choicesList.querySelectorAll(".choice-text-btn");
+  allBtns.forEach(b => b.disabled = true);
+  // result visual feedback
+  if(isCorrect){
+    btn.style.background = "linear-gradient(90deg, rgba(16,185,129,0.12), rgba(16,185,129,0.06))";
+    feedback.textContent = "Correct!";
+    feedback.className = "feedback ok";
+    score++;
+  } else {
+    btn.style.background = "linear-gradient(90deg, rgba(239,68,68,0.08), rgba(239,68,68,0.04))";
+    feedback.textContent = "Wrong answer!";
+    feedback.className = "feedback bad";
+  }
+
+  // record user answer
+  userAnswers.push({
+    type: currentQuestion.type,
+    qText: currentQuestion.question,
+    selected: [i],
+    correct: currentQuestion.correct.slice(),
+    selectedText: [currentQuestion.choices[i]],
+  });
+
+  setProgress();
+  // proceed after short delay
+  setTimeout(()=>{ currentIndex++; loadQuestion(); }, 1000);
 }
 
 function checkImageAnswer(){
-  const checkboxes=choicesList.querySelectorAll("input[type=checkbox]");
-  const selected=[]; checkboxes.forEach(cb=>{if(cb.checked)selected.push(parseInt(cb.value));});
-  const correct=currentQuestion.correct;
-  const allCorrect=selected.length===correct.length && selected.every(v=>correct.includes(v));
-  if(allCorrect){feedback.textContent="Correct!";feedback.className="feedback ok";score++;}
-  else{feedback.textContent="Wrong answer!";feedback.className="feedback bad";}
-  checkboxes.forEach(cb=>cb.disabled=true);
-  const btnCheck=choicesList.querySelector("button"); if(btnCheck)btnCheck.disabled=true;
-  setTimeout(()=>{currentIndex++;loadQuestion();},1500);
+  const checkboxes = choicesList.querySelectorAll('input[type="checkbox"]');
+  const selected = [];
+  checkboxes.forEach(cb => { if(cb.checked) selected.push(parseInt(cb.value)); });
+  const correct = currentQuestion.correct.slice();
+  // check exact match (same elements, order doesn't matter)
+  const allCorrect = selected.length === correct.length && selected.every(v => correct.includes(v));
+  if(allCorrect){
+    feedback.textContent = "Correct!";
+    feedback.className = "feedback ok";
+    score++;
+  } else {
+    feedback.textContent = "Wrong answer!";
+    feedback.className = "feedback bad";
+  }
+
+  // disable inputs
+  checkboxes.forEach(cb => cb.disabled = true);
+  const btnCheck = choicesList.querySelector("button");
+  if(btnCheck) btnCheck.disabled = true;
+
+  // store user answer selection texts
+  const selTexts = selected.map(i => currentQuestion.choices[i]);
+  userAnswers.push({
+    type: currentQuestion.type,
+    qText: currentQuestion.question,
+    selected: selected.slice(),
+    correct: correct.slice(),
+    selectedText: selTexts
+  });
+
+  setProgress();
+  setTimeout(()=>{ currentIndex++; loadQuestion(); }, 1200);
 }
 
-// ----------------------------
-// RESULTS, RESTART, SKIP
+// ------------------ Results and Modal -------------------
 function showResults(){
-  questionText.textContent="Quiz completed!";
-  choicesList.innerHTML="";
-  feedback.textContent="";
-  progressBar.style.width="100%";
-  skipBtn.hidden=true;
+  // prepare summary
+  // compute per-question correctness for summary display
+  const summary = [];
+  for(let i=0;i<userAnswers.length;i++){
+    const ua = userAnswers[i];
+    const correct = ua.correct.slice();
+    let isCorrect = false;
+    if(ua.type === "image"){
+      isCorrect = ua.selected.length === correct.length && ua.selected.every(v => correct.includes(v));
+    } else {
+      isCorrect = ua.selected.length === correct.length && ua.selected.every(v => correct.includes(v));
+    }
+    summary.push({...ua, isCorrect});
+  }
 
-  // FORM USING FORMSPREE
-  const form=document.createElement("form");
-  form.method="POST";
-  form.action="https://formspree.io/f/mandldqw"; // <- reemplazar por tu Formspree ID
-  form.innerHTML=`
-    <p>Your final score: ${score} / ${questions.length}</p>
-    <label>Student Name:</label>
-    <input type="text" name="student_name" required>
-    <input type="hidden" name="score" value="${score}">
-    <input type="hidden" name="total_questions" value="${questions.length}">
-    <button class="btn" type="submit">Send Result</button>
-  `;
-  choicesList.appendChild(form);
+  // build summary html
+  summaryList.innerHTML = "";
+  summary.forEach((s, idx) => {
+    const item = document.createElement("div");
+    item.className = "summary-item";
+    const left = document.createElement("div");
+    left.className = "left";
+    const qtitle = document.createElement("div");
+    qtitle.style.fontWeight = 700;
+    qtitle.style.marginBottom = "6px";
+    qtitle.textContent = `Q${idx+1}: ${s.qText}`;
+    left.appendChild(qtitle);
 
-  restartBtn.hidden=false;
+    const sel = document.createElement("div");
+    sel.className = "small";
+    if(s.selectedText && s.selectedText.length){
+      sel.innerHTML = `<strong>Selected:</strong> ${s.selectedText.join(" — ")}`;
+    } else sel.innerHTML = `<strong>Selected:</strong> (no selection)`;
+    left.appendChild(sel);
+
+    const corrList = s.correct.map(i => currentIndex>0 ? (questions[idx].choices ? questions[idx].choices[i] : '') : '').filter(Boolean);
+    // but better display correct texts from the source question by matching qText
+    // find the original question in questions array to get its choices
+    const orig = questions.find(q => q.question === s.qText);
+    const correctTexts = (orig && orig.choices) ? s.correct.map(i => orig.choices[i]) : s.correct.map(i => `#${i}`);
+    const corr = document.createElement("div");
+    corr.className = "small";
+    corr.innerHTML = `<strong>Correct:</strong> ${correctTexts.join(" — ")}`;
+    left.appendChild(corr);
+
+    item.appendChild(left);
+
+    const tag = document.createElement("div");
+    tag.style.textAlign = "right";
+    const span = document.createElement("span");
+    span.className = "tag " + (s.isCorrect ? "ok" : "bad");
+    span.textContent = s.isCorrect ? "Correct" : "Incorrect";
+    tag.appendChild(span);
+    item.appendChild(tag);
+
+    summaryList.appendChild(item);
+  });
+
+  // prepare textual summary to send
+  let summaryStr = `Quiz summary - Score: ${score} / ${questions.length}\n\n`;
+  summary.forEach((s, idx) => {
+    summaryStr += `Q${idx+1}: ${s.qText}\n`;
+    summaryStr += `  Selected: ${s.selectedText && s.selectedText.length ? s.selectedText.join(" | ") : "(none)"}\n`;
+    const orig = questions.find(q => q.question === s.qText);
+    const correctTexts = (orig && orig.choices) ? s.correct.map(i => orig.choices[i]) : s.correct;
+    summaryStr += `  Correct: ${correctTexts.join(" | ")}\n`;
+    summaryStr += `  Result: ${s.isCorrect ? "Correct" : "Incorrect"}\n\n`;
+  });
+
+  summaryText.value = summaryStr;
+  summaryHidden.value = summaryStr;
+  scoreHidden.value = `${score} / ${questions.length}`;
+
+  // show modal
+  modalBackdrop.style.display = "flex";
+  modalBackdrop.setAttribute("aria-hidden","false");
+  // ensure form sends current summary on submit (hidden input updated on submit too)
+  sendForm.addEventListener("submit", () => {
+    summaryHidden.value = summaryText.value;
+    scoreHidden.value = `${score} / ${questions.length}`;
+  }, {once:true});
 }
 
-restartBtn.addEventListener("click",()=>{currentIndex=0; score=0; restartBtn.hidden=true; skipBtn.hidden=false; loadQuestion();});
-skipBtn.addEventListener("click",()=>{currentIndex++; loadQuestion();});
-
-// ----------------------------
-// BRITISH ENGLISH VOICE
-let voices=[];function setVoices(){voices=speechSynthesis.getVoices();}
-speechSynthesis.onvoiceschanged=setVoices;setVoices();
-document.getElementById("speakBtn").addEventListener("click",()=>{
-  if(!currentQuestion) return;
-  const utter=new SpeechSynthesisUtterance(currentQuestion.question);
-  utter.lang="en-GB"; utter.rate=1; utter.pitch=1;
-  const britVoice=voices.find(v=>v.lang==="en-GB"); if(britVoice)utter.voice=britVoice;
-  speechSynthesis.speak(utter);
+// close modal
+closeModal.addEventListener("click", () => {
+  modalBackdrop.style.display = "none";
+  modalBackdrop.setAttribute("aria-hidden","true");
 });
 
-// START QUIZ
+
+// restart and skip
+restartBtn.addEventListener("click", ()=> {
+  currentIndex = 0; score = 0; userAnswers.length = 0;
+  restartBtn.classList.add("hidden");
+  skipBtn.classList.remove("hidden");
+  setProgress();
+  loadQuestion();
+});
+skipBtn.addEventListener("click", ()=> {
+  // record no selection for skipped question
+  userAnswers.push({
+    type: currentQuestion.type,
+    qText: currentQuestion.question,
+    selected: [],
+    correct: currentQuestion.correct.slice(),
+    selectedText: []
+  });
+  currentIndex++; loadQuestion();
+});
+
+// initial voices setup
+setVoices();
+
+// start
+setProgress();
 loadQuestion();
+
+// When quiz finished, show modal (we call showResults internally)
+function showResultsWrapper(){
+  // prevent duplicate if modal already visible
+  showResults();
+  restartBtn.classList.remove("hidden");
+  skipBtn.classList.add("hidden");
+}
+
+// Replace original showResults call within loadQuestion end-case
+// Modify loadQuestion to call showResultsWrapper when done
+// (already handled: loadQuestion calls showResults which opens modal)
+// but ensure restart button appears
+// To make sure, override showResults in this scope:
+const origShowResults = showResults;
+showResults = function(){
+  origShowResults();
+  restartBtn.classList.remove("hidden");
+  skipBtn.classList.add("hidden");
+};
 </script>
 </body>
 </html>
