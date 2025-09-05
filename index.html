@@ -33,9 +33,9 @@ linear-gradient(180deg,#e6f6ff 0%, #f4fbff 60%);-webkit-font-smoothing:antialias
 .brand{display:flex;align-items:center;gap:14px}
 .logo{height:64px;width:64px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Fredoka One',sans-serif}
 .title-wrap{line-height:1}
-.app__title{margin:0;font-size:20px;font-weight:700}
-.app__subtitle{margin:0;font-size:13px;opacity:.95}
-.header-cta{margin-left:auto;text-align:right;font-size:13px;color:rgba(255,255,255,.95)}
+.app__title{margin:0;font-size:30px;font-weight:700}
+.app__subtitle{margin:0;font-size:25px;opacity:.95}
+.header-cta{margin-left:auto;text-align:right;font-size:22px;color:rgba(255,255,255,.95)}
 .card{margin-top:18px;background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--child-shadow)}
 .topline{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .progress{flex:1;height:12px;background:#eef2f7;border-radius:999px;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
@@ -46,43 +46,63 @@ linear-gradient(180deg,#e6f6ff 0%, #f4fbff 60%);-webkit-font-smoothing:antialias
 .quiz-area{min-height:260px;display:flex;flex-direction:column;gap:12px}
 .question-box{display:flex;align-items:center;justify-content:flex-start;gap:12px}
 .question-hidden{position: absolute !important; left: -9999px !important; width:1px !important; height:1px !important; overflow:hidden !important} /* visually hidden */
-.speaker-btn{background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.88));border:0;padding:12px;border-radius:999px;font-size:18px;cursor:pointer;box-shadow:0 6px 18px rgba(10,20,40,0.05)}
+.speaker-btn{background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.88));border:0;padding:12px;border-radius:999px;font-size:25px;cursor:pointer;box-shadow:0 6px 18px rgba(10,20,40,0.05)}
 .speaker-btn:hover{transform:translateY(-3px)}
 .question-visual{flex:1}
 .question-img{width:100%;border-radius:14px;box-shadow:0 8px 24px rgba(12,20,40,0.06)}
 .choices{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .choice-item{display:flex;align-items:center;gap:10px;background:#fbfdff;border-radius:12px;padding:10px;border:1px solid rgba(10,20,40,0.03)}
 .choice-main{flex:1;display:flex;align-items:center;gap:10px}
-.choice-text-btn{flex:1;text-align:left;border:0;background:transparent;padding:10px;border-radius:10px;font-weight:600;cursor:pointer}
+.choice-text-btn{flex:1;text-align:left;border:0;background:transparent;padding:10px;border-radius:10px;font-weight:600;font-size:15px;cursor:pointer}
 .choice-text-btn:hover{background:linear-gradient(90deg, rgba(59,130,246,0.06), rgba(14,165,233,0.03))}
-.choice-speak{width:44px;height:44px;border-radius:10px;border:0;background:linear-gradient(180deg,var(--primary-1),var(--primary-2));color:white;font-size:18px;cursor:pointer}
+.choice-speak{width:44px;height:44px;border-radius:10px;border:0;background:linear-gradient(180deg,var(--primary-1),var(--primary-2));color:white;font-size:20px;cursor:pointer}
 .choice-speak:active{transform:scale(.98)}
 .controls{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
 .btn{border:0;padding:12px 16px;border-radius:14px;background:#f3f4f6;color:#0f172a;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(12,20,40,0.04)}
 .btn--ghost{background:transparent;border:2px solid rgba(15,23,42,0.06)}
 .btn--primary{background:linear-gradient(90deg,var(--primary-1),var(--primary-2));color:white}
-.feedback{min-height:30px;margin-top:6px;font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;color:var(--muted)}
+.feedback{min-height:30px;margin-top:6px;font-weight:700;font-size:20px;display:flex;align-items:center;gap:8px;color:var(--muted)}
 .feedback.ok{color:var(--ok)}
 .feedback.bad{color:var(--bad)}
 .sidebar{background:linear-gradient(180deg, rgba(250,250,255,0.8), rgba(245,250,255,0.6));padding:12px;border-radius:12px}
-.score-big{font-size:22px;font-weight:800;color:var(--primary-1)}
-.small{font-size:13px;color:var(--muted)}
-.footer{margin-top:14px;text-align:center;color:var(--muted);font-size:13px}
+.score-big{font-size:20px;font-weight:800;color:var(--primary-1)}
+.small{font-size:20px;color:var(--muted)}
+.footer{margin-top:14px;text-align:center;color:var(--muted);font-size:22px}
 
 /* Modal */
-.modal-backdrop{position:fixed;inset:0;background:rgba(6,8,15,0.45);display:none;align-items:center;justify-content:center;z-index:60}
-.modal{width:90%;max-width:900px;background:white;border-radius:16px;padding:18px;box-shadow:0 20px 60px rgba(2,6,23,0.5)}
-.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-.summary-list{max-height:420px;overflow:auto;padding:8px;border-radius:10px;border:1px dashed rgba(15,23,42,0.04)}
-.summary-item{padding:10px;border-radius:10px;margin-bottom:8px;background:#fbfdff;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-.summary-item .left{flex:1}
-.tag{font-size:12px;padding:6px 8px;border-radius:999px;font-weight:700}
-.tag.ok{background:rgba(16,185,129,0.12);color:var(--ok)}
-.tag.bad{background:rgba(239,68,68,0.12);color:var(--bad)}
-textarea.summary-text{width:100%;min-height:100px;border-radius:10px;border:1px solid #e6eef8;padding:10px;margin-top:8px}
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 8, 15, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    overflow: auto; /* permite scroll si el modal es más alto que la ventana */
+    padding: 20px;  /* espacio para que no toque los bordes de la pantalla */
+}
+
+.modal {
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh; /* que nunca supere el 90% de la altura de la pantalla */
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 20px 60px rgba(2, 6, 23, 0.5);
+    overflow-y: auto; /* scroll interno si el contenido excede el max-height */
+}
+
+.summary-list {
+    max-height: 60vh; /* ajustable según prefieras, para que la lista tenga scroll interno */
+    overflow: auto;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px dashed rgba(15, 23, 42, 0.04);
+}
 
 /* small helpers */
-.icon-speak{font-size:16px}
+.icon-speak{font-size:40px}
 .hidden{display:none}
 
     .logo-container {
@@ -179,7 +199,7 @@ textarea.summary-text{width:100%;min-height:100px;border-radius:10px;border:1px 
     <textarea class="summary-text" id="summaryText"></textarea>
 
     <form id="sendForm" action="https://formspree.io/f/mandldqw" method="POST" style="margin-top:12px">
-      <input type="text" name="student_name" placeholder="Student name" required style="padding:10px;border-radius:10px;border:1px solid #e6eef8;width:100%;box-sizing:border-box">
+      <input type="text" name="student_name" placeholder="Student's name" required style="padding:10px;border-radius:10px;border:1px solid #e6eef8;width:100%;box-sizing:border-box">
       <input type="hidden" name="summary" id="summaryHidden">
       <input type="hidden" name="score" id="scoreHidden">
       <div style="display:flex;gap:10px;margin-top:10px;justify-content:flex-end">
@@ -196,18 +216,18 @@ textarea.summary-text{width:100%;min-height:100px;border-radius:10px;border:1px 
    ========================================================= */
 
 const questions = [
-  {type:"text",question:"What's your name?",choices:["My name is Peter.","I'm fine, thank you.","I'm 8 years old."],correct:[0], userAnswer: null},  
-  {type:"text",question:"How are you?",choices:["My name is Anna.","I like pizza.","I'm fine, thank you."],correct:[2], userAnswer: null},
+  {type:"text",question:"What's your name?",choices:["My name is Sarah.","I'm fine, thank you.","I'm 8 years old."],correct:[0], userAnswer: null},  
+  {type:"text",question:"How are you?",choices:["I'm 8 years old.","I great.","I'm fine, thank you."],correct:[2], userAnswer: null},
   {type:"text",question:"How old are you?",choices:["I'm fine, thank you.","I'm 8 years old.","It's cloudy."],correct:[1], userAnswer: null},
   {type:"text",question:"What's the weather like?",choices:["I'm fine.","I like watching TV.","It's sunny."],correct:[2], userAnswer: null},
   {type:"text",question:"What's the date today?",choices:["It's cloudy.","September ten.","It's Monday, September 15th."],correct:[2], userAnswer: null},
   {type:"text",question:"When's your birthday?",choices:["My birthday is on January 11th.","Happy birthday!","It May 20."],correct:[0], userAnswer: null},
-  {type:"text",question:"Where do you live?",choices:["I live in Buenos Aires.","I am 10 years old.","I like cats."],correct:[0], userAnswer: null},
-  {type:"text",question:"What's your favourite colour?",choices:["My favourite colour is blue.","Yes, please.","I'm fine."],correct:[0], userAnswer: null},
-  {type:"text",question:"Do you have any pets?",choices:["Yes, I do.","No, I can't.","I am fine."],correct:[0], userAnswer: null},
-  {type:"text",question:"What's your favourite food?",choices:["Yes, I am.","My favourite food is pizza.","No, I don't."],correct:[1], userAnswer: null},
+  {type:"text",question:"Where do you live?",choices:["I live in Buenos Aires.","I am 10 years old.","Yes, I live."],correct:[0], userAnswer: null},
+  {type:"text",question:"What's your favourite colour?",choices:["My favourite colour is blue.","My colour favourite is yellow","I'm fine."],correct:[0], userAnswer: null},
+  {type:"text",question:"Do you have any pets?",choices:["Yes, I do.","No, I can't.","Yes, pets."],correct:[0], userAnswer: null},
+  {type:"text",question:"What's your favourite food?",choices:["Yes, I am.","My favourite food is pizza.","Favourite pizza food"],correct:[1], userAnswer: null},
   {type:"text",question:"Can you swim?",choices:["Yes, I can.","I am swimming.","I like swimming."],correct:[0], userAnswer: null},
-  {type:"text",question:"What is your favourite sport?",choices:["I like pizza.","I am 9 years old.", "My favourite sport is football."],correct:[2], userAnswer: null},
+  {type:"text",question:"What is your favourite sport?",choices:["No, I don't.","I like playing sports.", "My favourite sport is football."],correct:[2], userAnswer: null},
   {type:"text",question:"Do you like ice cream?",choices:["Yes, I do.","No, I can't.","I'm hungry."],correct:[0], userAnswer: null},
   {type:"text",question:"Can you ride a bike?",choices:["Yes, I can.","I like pizza.","I'm fine."],correct:[0], userAnswer: null},
   {type:"text",question:"What is your favourite school subject?",choices:["My favourite subject is Language.","I am 9 years old.","I like cats."],correct:[0], userAnswer: null},
@@ -218,7 +238,11 @@ const questions = [
   {type:"text",question:"What do you usually do in the evening?",choices:["I get up in the morning.","I have a shower and watch TV.","I like cats."],correct:[1], userAnswer: null},
   {type:"text",question:"Can you speak English?",choices:["No, I don't.","I live in Paris.","Yes, I can."],correct:[2], userAnswer: null},
   {type:"text",question:"What time do you go to bed?",choices:["Yes, I do.","I go to bed at 10 o'clock.","I have dinner."],correct:[1], userAnswer: null},
-  
+  {type:"text",question:"Can your dad cook?",choices:["Yes, I do.","Yes, he can.","No, I don't."],correct:[1], userAnswer: null},
+  {type:"text",question:"What do you do in the morning?",choices:["I get up and I brush my teeth.","I go to bed.","I go home."],correct:[0], userAnswer: null},
+  {type:"text",question:"Do you like swimming?",choices:["Yes, I do.","I can't.","I swim."],correct:[0], userAnswer: null},
+  {type:"text",question:"What time do you usually get up?",choices:["I usually get up at 7 o'clock.","I like cats.","I'm happy."],correct:[0], userAnswer: null},
+  {type:"text",question:"Imagine you are in a restaurant, what would you like to eat?",choices:["Yes, I would.","I like sushi.","I'd like to eat a burger."],correct:[2], userAnswer: null},
   // 10 preguntas con imagen y 5 correctas
   {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img1.png",
    choices:["There is a clock.","The weather is partly cloudy.","The children are playing.","They are in the Art class.","There is chairs.","They are in a classroom.","The birds are flying.","They are pasting, cutting and colouring pictures.","There are some apples.", "The dad is cooking."],
@@ -231,12 +255,8 @@ const questions = [
    correct:[0,2,4,6,8], userAnswer: []},
 
   
-  {type:"text",question:"Can your dad cook?",choices:["Yes, I do.","Yes, he can.","No, I don't."],correct:[1], userAnswer: null},
-  {type:"text",question:"What do you do in the morning?",choices:["I get up and I brush my teeth.","I go to bed.","I go home."],correct:[0], userAnswer: null},
-  {type:"text",question:"Do you like swimming?",choices:["Yes, I do.","I can't.","I swim."],correct:[0], userAnswer: null},
-  {type:"text",question:"What time do you usually get up?",choices:["I usually get up at 7 o'clock.","I like cats.","I'm happy."],correct:[0], userAnswer: null},
-  {type:"text",question:"Imagine you are in a restaurant, what would you like to eat?",choices:["Yes, I would.","I like sushi.","I'd like to eat a burger."],correct:[2], userAnswer: null},
-  {type:"text",question:"Perfect, that's it. Have a nice day! Goodbye!",choices:["Good bye!","Hello!","I'm happy."],correct:[0], userAnswer: null},
+
+  {type:"text",question:"Great job. Have a nice day, goodbye!",choices:["Good bye!","Hello!","I'm happy."],correct:[0], userAnswer: null},
 ];
 
 let currentIndex = 0, score = 0, currentQuestion = null;
@@ -401,7 +421,7 @@ function playText(text){
   if(window.speechSynthesis) speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = "en-GB";
-  u.rate = 1;
+  u.rate = 0.75;
   u.pitch = 1;
   // pick en-GB if possible
   const brit = voices.find(v => v.lang && v.lang.startsWith("en-GB"));
@@ -507,7 +527,7 @@ function showResults(){
     const left = document.createElement("div");
     left.className = "left";
     const qtitle = document.createElement("div");
-    qtitle.style.fontWeight = 700;
+    qtitle.style.fontWeight = 600;
     qtitle.style.marginBottom = "6px";
     qtitle.textContent = `Q${idx+1}: ${s.qText}`;
     left.appendChild(qtitle);
