@@ -223,7 +223,10 @@ const questions = [
   {type:"text",question:"What's the date today?",choices:["It's cloudy.","September ten.","It's Monday, September 15th."],correct:[2], userAnswer: null},
   {type:"text",question:"When's your birthday?",choices:["My birthday is on January 11th.","Happy birthday!","It May 20."],correct:[0], userAnswer: null},
   {type:"text",question:"Where do you live?",choices:["I live in Buenos Aires.","I am 10 years old.","Yes, I live."],correct:[0], userAnswer: null},
+  {type:"text",question:"Do you live in a house or a flat?",choices:["I live in a house.","My house is big.","No, I don't."],correct:[0], userAnswer: null},
+  {type:"text",question:"How do you go to school?",choices:["I go to school.","I go to school by car.","Yes, I do."],correct:[1], userAnswer: null},
   {type:"text",question:"What's your favourite colour?",choices:["My favourite colour is blue.","My colour favourite is yellow","I'm fine."],correct:[0], userAnswer: null},
+  {type:"text",question:"What do you do in your free time?",choices:["I go to school.","I play video games and read books.","I study."],correct:[1], userAnswer: null},
   {type:"text",question:"Do you have any pets?",choices:["Yes, I do.","No, I can't.","Yes, pets."],correct:[0], userAnswer: null},
   {type:"text",question:"What's your favourite food?",choices:["Yes, I am.","My favourite food is pizza.","Favourite pizza food"],correct:[1], userAnswer: null},
   {type:"text",question:"Can you swim?",choices:["Yes, I can.","I am swimming.","I like swimming."],correct:[0], userAnswer: null},
@@ -232,6 +235,7 @@ const questions = [
   {type:"text",question:"Can you ride a bike?",choices:["Yes, I can.","I like pizza.","I'm fine."],correct:[0], userAnswer: null},
   {type:"text",question:"What is your favourite school subject?",choices:["My favourite subject is Language.","I am 9 years old.","I like cats."],correct:[0], userAnswer: null},
   {type:"text",question:"What do you usually eat for breakfast?",choices:["I usually eat pizza.","Pizza.","I usually eat cookies."],correct:[2], userAnswer: null},
+  {type:"text",question:"What time does school finish?",choices:["I go to school.","I finish.","At 4 o'clock in the afternoon."],correct:[2], userAnswer: null},
   {type:"text",question:"Do you like reading books?",choices:["Yes, I do.","I have a dog.","I like swimming."],correct:[0], userAnswer: null},
   {type:"text",question:"What's your father's job?",choices:["It's great!","It's five o'clock.","He's a dentist."],correct:[2], userAnswer: null},
   {type:"text",question:"Do you play any musical instrument?",choices:["Yes, I do.","No, thank you.","I am 8."],correct:[0], userAnswer: null},
@@ -248,11 +252,19 @@ const questions = [
    choices:["There is a clock.","The weather is partly cloudy.","The children are playing.","They are in the Art class.","There is chairs.","They are in a classroom.","The birds are flying.","They are pasting, cutting and colouring pictures.","There are some apples.", "The dad is cooking."],
    correct:[0,1,3,5,7], userAnswer: []},
   {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img2.png",
-   choices:["It's sunny.","The girl is skipping the rope.","The boy is playing with a car.","They are playing football.","The bird is flying.","It's cloudy.","The ball is red.","The girl is reading.","The trees are red.","He is cooking."],
+   choices:["It's sunny.","The girl is skipping the rope.","The boy is playing with a car.","They are playing football.","The bird is flying.","It's cloudy.","The ball is pink.","The girl is reading.","The trees are red.","He is cooking."],
    correct:[0,1,2,3,4], userAnswer: []},
   {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img3.png",
    choices:["The girl is on the tree.","The dog is jumping.","There are 4 apples.","There is any apples.","The dog is playing with the boy.","She is singing.","The boy is sleeping.","She is sleeping.","She is reading a book.","It's rainy."],
    correct:[0,2,4,6,8], userAnswer: []},
+  {type:"image",question:"Look at the picture. Choose 5 correct sentences.",image:"media/img4.png",
+   choices:["There is some eggs.","There are some eggs.","There isn't any sugar.","There is some sugar.","There aren't any water.","There isn't some water.","There isn't any water.","There isn't any spinach.","There is some spinach.","There aren't any mushrooms."],
+   correct:[1,3,6,8,9], userAnswer: []},
+
+
+  {type:"image",question:"Look at the picture. What are their jobs? Choose 5 sentences.",image:"media/img6.png",
+   choices:["He is a football player.","She is a painter.","My father is a teacher.","Astronaut and fireman.","They are dentists.","She is an astronaut.","They are doctors.","She is a chef.","He's an actor.", "She's a doctor."],
+   correct:[0,1,5,7,9], userAnswer: []},
 
   
 
